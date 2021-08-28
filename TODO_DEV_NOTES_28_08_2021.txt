@@ -1,0 +1,67 @@
+IDEAS:
+
+1. IMPLEMENT LOGGING IN FASTAI LEARNER
+SAVE metadata,model,metrics,run_PARAMS for each run
+
+2. VIDEO LEARNING
+IS THE SAME as language models with ENCODERS as CNNS
+from each scene learn a WORD embedding then do RNN/
+LSTMS
+
+3. VIDEO CLASSIFICATION:
+AS the base case,extract frames along the time axis
+label each frame, now you have reduced the problem to
+IMAGE CLASSIFICATION,with labels and items neatly aligned
+along the time axis 
+
+
+STEVE BRUNTON :DMD (Dynamic Mode Decomp) : learn a coordinate trans
+form (function) to downsample fulls space to latent subspace
+
+xi=phi(yi)
+i in [0:T]
+
+learn dynamics of latent space,x such that dynamics are easy/
+linear/in a subspace of functions :
+
+x[t+1]=F(x[t])
+
+then decode the latent space xi to reconstruct yi
+
+yi=psi(xi) : because the mapping is approximate(there is recon
+struction loss), psi != phi^-1 (phi inverse)
+
+this general approach uses an encoder/decoder network psi and
+phi to encode to and decode from latent space x ,also a recurr
+ant network f()  which is the dynamics of the lower dimensional
+space x.
+
+Some general examples of this approach:
+
+
+simple diagnalization of the dynamics matrix to solve a linear
+system of ODES can be thought of as an encoder T^-1exp(lambda)T
+T^-1 :inverse eigenvector matrix -encoder
+T  :  eigenvector matrix -decoder
+x *= lambda(x) there lambda is matrix with eigenvals on
+diag is the latent space x where dynamics are simpler
+
+SVD of time series matrix- U sigma V^t (V transpose)
+U encoder sigmma- (simgular values-dynamics) V transpose-decoder
+
+
+28-Aug-2021
+
+Artificial creation of data to benchmark pizel level 
+classification/segmentation architectures: generate shapes with 
+increasing level of complexity with parameters drawn from sample
+distributions. (think radii of circles, e of ellipse/dims of
+rectangle etc.). attempt to segragate the data based on the 
+distribution from which it was drawn (at a pixel level)
+
+Additionally: add noise/jitter to regular shapes (rectangle etc)
+to get slightly non uniform shapes tgis will approximate cellular
+detection under variation of samples
+
+
+
